@@ -199,12 +199,13 @@ float fonksiyon_sonucu ( Islem * islem , float x ){
   }
 }
 
-void hesaplayici( char * fonksiyon ){
+Islem * islem_olusturucu( char * fonksiyon  ){
   Islem * islem = NULL;
-  float x;
   int * oncelik = oncelik_belirleme( fonksiyon );   
   islem_ekle( &islem , fonksiyon , oncelik , 0 , sizeofarray( fonksiyon ));
-  printf("x degerini giriniz ");
-  scanf( "%f" , &x );
-  printf("\n%f" , fonksiyon_sonucu( islem , x) );
+  return islem;
+}
+
+float hesaplayici( Islem * islem , float x){
+  return fonksiyon_sonucu( islem , x);
 }
